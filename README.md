@@ -13,6 +13,29 @@ A Soroban transaction holds one `InvokeHostFunction` operation. Multi-step flows
 - **Spend caps.** A negative `min_delta` limits how much an account can lose in the batch.
 - **Deadline.** A signed batch cannot be held back and submitted later at a worse price.
 
+## Live on testnet
+
+| | |
+|---|---|
+| Lockstep contract | [`CBOA3SKHOLWCZRSEM6IFHGGFREFXWRXYFMH3FM7QTXT7AZRSXQXTRJ3C`](https://stellar.expert/explorer/testnet/contract/CBOA3SKHOLWCZRSEM6IFHGGFREFXWRXYFMH3FM7QTXT7AZRSXQXTRJ3C) |
+| Example batch | [Two XLM transfers with a spend cap and a minimum-received check](https://stellar.expert/explorer/testnet/tx/72d6ffc71fa8996e72985df3a22c051bb7d8a1d8e510703669b35ae9d04a7519) |
+
+The same batch with an impossible guarantee is refused with `Error(Contract, #6)` (`CheckFailed`), so nothing runs. The web app in `ui/` points at this contract by default.
+
+### Try it
+
+1. Install [Freighter](https://freighter.app) and switch it to testnet.
+2. Fund your testnet account with friendbot in [Stellar Lab](https://lab.stellar.org).
+3. Start the app:
+
+   ```sh
+   cd ui && npm install && npm run dev
+   ```
+
+4. Open **Templates**, choose **Pay several people**, add two recipients with XLM amounts, then **Dry run** and **Sign and run** in the composer.
+
+Prefer no wallet? Press **Explore the live demo** on the landing page for a sample batch and history.
+
 ## How it works
 
 ```
