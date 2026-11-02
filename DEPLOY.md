@@ -1,8 +1,22 @@
-# Deploying Lockstep to mainnet
+# Deploying Lockstep
+
+## Testnet (start here)
+
+Testnet is free. The script creates a test identity, funds it with friendbot and deploys.
+
+```sh
+# after installing stellar-cli (step 1 below)
+YES=1 ./scripts/deploy-testnet.sh
+cd ui && npm run dev
+```
+
+The script writes `ui/.env` with the testnet contract ID. Commit it so the hosted app points at testnet.
+
+## Mainnet
 
 Lockstep v0.1 is **not audited**. It holds no funds, but users sign real transactions through it. Label the app as beta and plan an audit through the SCF Audit Bank.
 
-## 1. Install stellar-cli
+### 1. Install stellar-cli
 
 ```sh
 sudo apt install -y libudev-dev libdbus-1-dev pkg-config build-essential
@@ -12,7 +26,7 @@ stellar --version
 
 Or install the `.deb` package from the [stellar-cli releases](https://github.com/stellar/stellar-cli/releases).
 
-## 2. Add your signing key
+### 2. Add your signing key
 
 ```sh
 stellar keys add deployer
@@ -20,11 +34,11 @@ stellar keys add deployer
 
 Enter your secret key or seed phrase when prompted. It stays in stellar-cli's key store on your machine. The account must hold enough XLM for the deploy fees and the minimum reserve.
 
-## 3. Get a mainnet RPC URL
+### 3. Get a mainnet RPC URL
 
 SDF runs no public mainnet RPC. Pick a provider from the [Stellar RPC providers list](https://developers.stellar.org/docs/data/rpc/rpc-providers) and copy your endpoint URL.
 
-## 4. Deploy
+### 4. Deploy
 
 ```sh
 export STELLAR_RPC_URL="https://your-provider-endpoint"
@@ -34,7 +48,7 @@ export SOURCE=deployer
 
 Lockstep has no admin and no settings. The script shows a summary, asks you to type `DEPLOY`, builds the wasm, deploys with your key and prints the contract ID.
 
-## 5. Build the web app for mainnet
+### 5. Build the web app for mainnet
 
 The script writes `ui/.env.production` (network and contract ID, safe to commit) and `ui/.env.production.local` (your RPC URL, not committed).
 
