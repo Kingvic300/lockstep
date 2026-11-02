@@ -121,9 +121,6 @@ export function Landing() {
         <div className="hero-grid-bg" aria-hidden="true" />
         <div className="mk-inner hero-layout">
           <div className="hero-copy">
-            <a className="badge" href={REPO} target="_blank" rel="noreferrer">
-              <span className="badge-dot" /> Atomic batches for Stellar Soroban
-            </a>
             <h1>Sign the outcome, not the steps.</h1>
             <p className="mk-lede">
               Lockstep runs several Soroban contract calls in one transaction, then checks your balances before anything is
@@ -157,7 +154,6 @@ export function Landing() {
       <section id="why" className="mk-section" aria-labelledby="why-title">
         <div className="mk-inner">
           <div className="sec-head">
-            <span className="eyebrow">Why Lockstep</span>
             <h2 id="why-title">Wallets show you calls. You care about results.</h2>
             <p className="sec-lede">
               A Soroban transaction holds one contract invocation. Multi-step flows either split into several transactions or
@@ -192,7 +188,6 @@ export function Landing() {
       <section id="how" className="mk-section soft" aria-labelledby="how-title">
         <div className="mk-inner">
           <div className="sec-head">
-            <span className="eyebrow">How it works</span>
             <h2 id="how-title">From a list of calls to one guaranteed result.</h2>
           </div>
           <ol className="steps">
@@ -215,7 +210,6 @@ export function Landing() {
       <section id="features" className="mk-section" aria-labelledby="feat-title">
         <div className="mk-inner">
           <div className="sec-head">
-            <span className="eyebrow">Features</span>
             <h2 id="feat-title">Small contract. Strong guarantees.</h2>
           </div>
           <div className="bento">
@@ -235,7 +229,6 @@ export function Landing() {
       <section id="dev" className="mk-section soft" aria-labelledby="dev-title">
         <div className="mk-inner dev-grid">
           <div>
-            <span className="eyebrow">For developers</span>
             <h2 id="dev-title">One function. Four arguments.</h2>
             <p className="sec-lede">
               Call <code>execute</code> with the caller, a list of calls, a list of balance checks and a deadline. Simulation
@@ -285,7 +278,6 @@ export function Landing() {
       <section id="faq" className="mk-section" aria-labelledby="faq-title">
         <div className="mk-inner faq-grid">
           <div className="sec-head left">
-            <span className="eyebrow">FAQ</span>
             <h2 id="faq-title">Questions, answered.</h2>
             <p className="sec-lede">
               Something else? Open an issue on{" "}
