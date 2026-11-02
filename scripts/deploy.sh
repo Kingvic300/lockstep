@@ -39,6 +39,12 @@ case "$NETWORK" in
   *) die "NETWORK must be testnet or mainnet" ;;
 esac
 
+if [ "$NETWORK" = testnet ] && [ "$STELLAR_RPC_URL" = "https://soroban-testnet.stellar.org" ]; then
+  NET=(--network testnet)
+else
+  NET=(--rpc-url "$STELLAR_RPC_URL" --network-passphrase "$PASSPHRASE")
+fi
+
 cat <<SUMMARY
 
   Lockstep deploy on $NETWORK
@@ -64,8 +70,7 @@ WASM="$ROOT/target/wasm32v1-none/release/soroban_lockstep.wasm"
 [ -f "$WASM" ] || die "wasm not found at $WASM"
 
 echo "Deploying…"
-ID="$(stellar contract deploy --wasm "$WASM" --source "$SOURCE" \
-  --rpc-url "$STELLAR_RPC_URL" --network-passphrase "$PASSPHRASE" --alias "lockstep-$NETWORK")"
+ID="$(stellar contract deploy --wasm "$WASM" --source "$SOURCE" "${NET[@]}" --alias "lockstep-contract-$NETWORK")"
 
 echo
 echo "Lockstep deployed: $ID"
