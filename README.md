@@ -63,6 +63,10 @@ cargo test               # 7 unit tests, native
 stellar contract build   # wasm in target/wasm32v1-none/release/
 ```
 
+## Deploy to mainnet
+
+See [DEPLOY.md](DEPLOY.md). `scripts/deploy-mainnet.sh` builds, shows a summary, asks for confirmation and deploys with your own stellar-cli key. It also points the web app at the new contract.
+
 ## Web UI
 
 `ui/` holds Lockstep Composer: a web app that builds a batch step by step, adds balance guarantees, shows a plain-language summary of what you sign, and runs a dry run before you sign in Freighter. See [ui/README.md](ui/README.md).
