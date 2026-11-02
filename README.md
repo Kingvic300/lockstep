@@ -63,6 +63,14 @@ cargo test               # 7 unit tests, native
 stellar contract build   # wasm in target/wasm32v1-none/release/
 ```
 
+## Web UI
+
+`ui/` holds Lockstep Composer: a web app that builds a batch step by step, adds balance guarantees, shows a plain-language summary of what you sign, and runs a dry run before you sign in Freighter. See [ui/README.md](ui/README.md).
+
+```sh
+cd ui && npm install && npm run dev
+```
+
 ## Roadmap
 
 1. **v0.1 (now):** batch execution, balance postconditions, deadline, self-call guard. Unit tests.
